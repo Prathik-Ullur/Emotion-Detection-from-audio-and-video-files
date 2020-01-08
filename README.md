@@ -1,4 +1,4 @@
-# apm_project_emotion_detection
+# Emotion Detection on audio and video files
 
 ## Overview
 
