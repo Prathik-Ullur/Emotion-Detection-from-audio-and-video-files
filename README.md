@@ -2,6 +2,8 @@
 
 ## Overview
 
+![](https://egyptinnovate.com/sites/default/files/recognition/images/Affectiva.jpg)
+
 It all began about 2,000 years ago when Plato wrote, “All learning has an emotional base.”
 
 One might think that over 200,000 years of evolution would make humans masters of emotions. Yet, we live in a world where people, irrespective of age or maturity, often make errors in emotional judgment. Clarity in identifying emotions is key to social behaviors such as smooth communication and building long-lasting relationships.
@@ -50,7 +52,7 @@ Filename identifiers:
 
 Emotions manifest in three primary forms: facial expressions, vocal inflections, and body language. We will focus on the first two, as they are more consistent across the entire human population and be more easily attributed to specific emotions.
 
-### Speech 
+### Speech :
 
 The first step in any automatic speech recognition system is to extract features i.e. identify the components of the audio signal that are good for identifying the linguistic content and removing all the noise which carries information like background noise, emotion etc. Mel Frequency Cepstral Coefficents (MFCCs) are a feature widely used in automatic speech and speaker recognition. This process allows the computer to understand sound as humans do. It attempts to mimic the human cochlea (an organ in the ear) which vibrates at different spots depending on the frequency of the incoming sounds. We will use the Python package librosa for this purpose.
 
@@ -62,7 +64,7 @@ Other features that can be extracted are Zero Crossing Rate, Spectral Centroid a
 
 - Spectral Rolloff: Spectral rolloff is the frequency below which a specified percentage of the total spectral energy, e.g. 85%, lies.
 
-### Video 
+### Video :
 
 The ability to read emotions from faces is a very important skill. One might even call it a superpower. It is this skill that has enabled and facilitated human interactions since time immemorial.
 
@@ -90,7 +92,7 @@ Trained CNN model weights can be stored in .h5 files created by the Keras Python
 
 ## Challenges and Future Scope
 
-### Combining audio & video data
+### Combining audio & video data:
 
 This was undoubtedly our biggest challenge in this project. So far, we have split our data into separate audio and video files to extract MFCCs and images respectively. However, taking a combined approach to simultaneously train a model capable of processing audio and video signals would help achieve a more scalable outcome. As mentioned earlier in the blog, emotion recognition is majorly sought after in many industries. We believe as future scope, this product could be made more widely acceptable by being compatible with either kind of input.
 
@@ -98,7 +100,7 @@ This was undoubtedly our biggest challenge in this project. So far, we have spli
 
 An industry that’s taking advantage of this technology currently is Health Care, with AI-powered recognition software helping to decide when patients necessitate medicine or to help physicians determine who to see first. A problem we foresee that can be prevented with accurate emotion detection is in the Mental Health awareness space. Those suffering from mental health issues often keep to themselves and don’t share much about their problems. Correctly identifying emotions these distress signals, could make a huge difference to avoid mental breakdowns and stress-related trauma. A computer would be unbiased and more sensitive to detecting early signs to help alert close friends or family.
 
-### Dealing with the inherent bias
+### Dealing with the inherent bias:
 
 There are two broad biases that are suffered by our models:
 
