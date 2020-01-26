@@ -1,4 +1,3 @@
-[Link to Towards Data Science Blog](https://towardsdatascience.com/aei-artificial-emotional-intelligence-ea3667d8ece)
 
 # How to detect emotion from audio and video files?
 
@@ -122,5 +121,6 @@ There are two broad biases that are suffered by our models:
 
 [6] Angelica Perez, EmoPy: a machine learning toolkit for emotional expression
 
+## [Link to Towards Data Science Blog](https://towardsdatascience.com/aei-artificial-emotional-intelligence-ea3667d8ece)
 
 
