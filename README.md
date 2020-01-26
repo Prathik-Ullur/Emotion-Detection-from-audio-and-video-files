@@ -1,7 +1,5 @@
 # Emotion Detection on audio and video files
 
-## Overview
-
 ![](https://marketingland.com/wp-content/ml-loads/2016/03/emotions_ss_1920.png)
 
 It all began about 2,000 years ago when Plato wrote, “All learning has an emotional base.”
