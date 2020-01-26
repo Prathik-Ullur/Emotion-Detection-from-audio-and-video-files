@@ -64,15 +64,11 @@ Other features that can be extracted are Zero Crossing Rate, Spectral Centroid a
 
 ### Video :
 
-The ability to read emotions from faces is a very important skill. One might even call it a superpower. It is this skill that has enabled and facilitated human interactions since time immemorial.
+The first step would be to parse the video file into a set of image frames that we use to train the model. We use the cv2 library to capture images from a video. The VideoCapture function reads the video file and converts it into a sequence of image frames.
 
-Subconsciously we see, label, make predictions, and recognize patterns all day every day. But how do we do that? How is it that we can interpret everything that we see?
+Each frame obtained will contain a two-dimensional array of integers containing information of the image. The images are composed of pixels and these pixels are channels of multiple arrays of numbers. Colored images have three color channels — red, green, and blue — and each channel is represented by a grid. Each cell in the grid stores a number between 0 and 255 which denotes the intensity of that cell. To capture a different expression each time, we pass every 20th frame into our training model.
 
-It took nature over 500 million years to create a system to do this. The collaboration between the eyes and the brain, called the primary visual pathway, is the reason we can make sense of the world around us.
-
-The deeply complex hierarchical structure of neurons and connections in the brain play a major role in this process of remembering and labeling objects. In the beginning, we were taught the name of the objects around us. We learned by examples that were given to us. Slowly but surely, we started to recognize things more and more often in our environment. They became so common that the next time we saw them, we would instantly know what the name of this object was. They became part of our ‘model’ of the world.
-
-But how do modern machines recognize emotions from facial expressions?
+After extracting the image data, we resize the images to 256*256 to retain as much information as possible to enhance the accuracy of the model. We converted these images to gray-scale, so that there is only one channel thereby reducing complexity.
 
 ## Modelling Approach
 
