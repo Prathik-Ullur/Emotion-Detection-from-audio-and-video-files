@@ -2,15 +2,23 @@
 
 ## Overview
 
+It all began about 2,000 years ago when Plato wrote, “All learning has an emotional base.”
+
+One might think that over 200,000 years of evolution would make humans masters of emotions. Yet, we live in a world where people, irrespective of age or maturity, often make errors in emotional judgment. Clarity in identifying emotions is key to social behaviors such as smooth communication and building long-lasting relationships.
+
+What makes identifying emotions challenging for humans?
+
+We often struggle to express our emotions and articulate our feelings. emotions come in many different degrees, qualities, and intensities. In addition, our experiences are often comprised of multiple emotions at once, which adds another dimension of complexity to our emotional experience.
+
+The icing on the cake is, however, Emotional Bias. With a spectrum as variant as the range of emotions, there is bound to be bias. This is where the problem gets interesting for us as data scientists- we love a good ‘Bias-Variance’ problem!
+
+Enter, your friendly, unbiased neighborhood Emotion Detector Bot. Gone are the days when the only thing separating man and machine was emotional intelligence. Emotion Recognition or Artificial ‘Emotional’ Intelligence is now a $20 billion field of research with applications in many different industries.
+
+Across industries, artificial emotional intelligence can work in a number of ways. For example, AI can monitor a user’s emotions and analyze them to achieve a certain outcome. This application would prove extremely useful in enhancing automated Customer Service calls. AI can also use emotional readings as part of decision making, for example in marketing campaigns. Advertisements can be changed based on consumer reactions.
+
 This repository contains our Fall 2019 term project for MIS 281N Advanced Predictive Modeling as part of the MS Business Analytics curriculum at UT Austin. It pulls from data found in the Ryerson Audio-Visual Database of Emotional Speech and Song (see here: https://zenodo.org/record/1188976).
 
-### Contibutors
 
-- Saurabh Bodas
-- Prathik Ullur
-- Namita Ramesh
-- David Owen
-- Pooja Shah
 
 ## Problem Statement
 
@@ -20,28 +28,29 @@ The opposite party’s emotional state is evaluated and re-evaluated constantly 
 
 Emotion detection can have a wide range of applications beyond strict human-AI communication. In transportation, installing emotion recognition (ER) systems in vehicles can allow the system to take over if fatigue is detected. In the field of education, detecting emotions like frustration and stress can act as a good feedback system for online learning portals. ER has lucrative applications in automated customer service. 
 
-## Data Set: The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS)
 
-https://zenodo.org/record/1188976
+## RAVDESS Data Set
 
-The RAVDESS contains 7356 files. Each file was rated 10 times on emotional validity, intensity, and genuineness. Ratings were provided by 247 individuals who were characteristic of untrained adult research participants from North America. A further set of 72 participants provided test-retest data. High levels of emotional validity, interrater reliability, and test-retest intra-rater reliability were reported.
+The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS) contains 7356 files (total size: 24.8 GB). The database contains 24 professional actors (12 female, 12 male), vocalizing two lexically-matched statements in a neutral North American accent. Speech includes calm, happy, sad, angry, fearful, surprise, and disgust expressions. Each expression is produced at two levels of emotional intensity (normal, strong), with an additional neutral expression. All conditions are available in three modality formats: Audio-only (16bit, 48kHz .wav), Audio-Video (720p H.264, AAC 48kHz, .mp4), and Video-only (no sound).
 
-The database contains 24 professional actors (12 female, 12 male), vocalizing two lexically-matched statements in a neutral North American accent. Speech includes calm, happy, sad, angry, fearful, surprise, and disgust expressions, and song contains calm, happy, sad, angry, and fearful emotions. Each expression is produced at two levels of emotional intensity (normal, strong), with an additional neutral expression. All conditions are available in three modality formats: Audio-only (16bit, 48kHz .wav), Audio-Video (720p H.264, AAC 48kHz, .mp4), and Video-only (no sound).
+Each of the 7356 RAVDESS files has a unique filename. The filename consists of a 7-part numerical identifier (e.g., 02–01–06–01–02–01–12.mp4). These identifiers define the stimulus characteristics:
 
-### Labels
+Filename identifiers:
 
-- Modality (01 = full-AV, 02 = video-only, 03 = audio-only).
-- Vocal channel (01 = speech, 02 = song).
-- Emotion (01 = neutral, 02 = calm, 03 = happy, 04 = sad, 05 = angry, 06 = fearful, 07 = disgust, 08 = surprised).
-- Emotional intensity (01 = normal, 02 = strong). NOTE: There is no strong intensity for the 'neutral' emotion.
-- Statement (01 = "Kids are talking by the door", 02 = "Dogs are sitting by the door").
-- Repetition (01 = 1st repetition, 02 = 2nd repetition).
-- Actor (01 to 24. Odd numbered actors are male, even numbered actors are female).
+•	Modality (01 = full-AV, 02 = video-only, 03 = audio-only)
+•	Vocal channel (01 = speech, 02 = song).
+•	Emotion (01 = neutral, 02 = calm, 03 = happy, 04 = sad, 05 = angry, 06 = fearful, 07 = disgust, 08 = surprised).
+•	Emotional intensity (01 = normal, 02 = strong). NOTE: There is no strong intensity for the ‘neutral’ emotion.
+•	Statement (01 = “Kids are talking by the door”, 02 = “Dogs are sitting by the door”).
+•	Repetition (01 = 1st repetition, 02 = 2nd repetition).
+•	Actor (01 to 24. Odd numbered actors are male, even numbered actors are female).
 
 
 ## Approach
 
 Emotions manifest in three primary forms: facial expressions, vocal inflections, and body language. We will focus on the first two, as they are more consistent across the entire human population and be more easily attributed to specific emotions.
+
+### Speech 
 
 The first step in any automatic speech recognition system is to extract features i.e. identify the components of the audio signal that are good for identifying the linguistic content and removing all the noise which carries information like background noise, emotion etc. Mel Frequency Cepstral Coefficents (MFCCs) are a feature widely used in automatic speech and speaker recognition. This process allows the computer to understand sound as humans do. It attempts to mimic the human cochlea (an organ in the ear) which vibrates at different spots depending on the frequency of the incoming sounds. We will use the Python package librosa for this purpose.
 
@@ -53,15 +62,57 @@ Other features that can be extracted are Zero Crossing Rate, Spectral Centroid a
 
 - Spectral Rolloff: Spectral rolloff is the frequency below which a specified percentage of the total spectral energy, e.g. 85%, lies.
 
+### Video 
 
-### Modelling Approach
+The ability to read emotions from faces is a very important skill. One might even call it a superpower. It is this skill that has enabled and facilitated human interactions since time immemorial.
+
+Subconsciously we see, label, make predictions, and recognize patterns all day every day. But how do we do that? How is it that we can interpret everything that we see?
+
+It took nature over 500 million years to create a system to do this. The collaboration between the eyes and the brain, called the primary visual pathway, is the reason we can make sense of the world around us.
+
+The deeply complex hierarchical structure of neurons and connections in the brain play a major role in this process of remembering and labeling objects. In the beginning, we were taught the name of the objects around us. We learned by examples that were given to us. Slowly but surely, we started to recognize things more and more often in our environment. They became so common that the next time we saw them, we would instantly know what the name of this object was. They became part of our ‘model’ of the world.
+
+But how do modern machines recognize emotions from facial expressions?
+
+## Modelling Approach
 
 We have run different models like XGBoost, Support Vector Machines, Convolution Neural Network, and Recurrent Neural Networks on the existing and manually engineered features present in audio and video information.
 
 Since our dataset has only ~7000 observations, we could find a pretrained model on a similar problem and then implement transfer learning. We will also look at several audio augmentation techniques like Changing Pitch, Noise Injection and Shifting Time to expand our dataset.
 
-### Usage
+## Usage
 
 Code is contained in ipython files meant to run in Google Colab, but they can also be run on a local machine with the source data in the appropriate directories. Users can begin at the "cnn.load_model()" cell to skip training and writing to a new .h5 file, which will take anywhere from 45min to several hours.
 
 Trained CNN model weights can be stored in .h5 files created by the Keras Python package. These files can vary in size from 2-800 Mb, far beyond the storage limits of Git. Instead, they can be found at this dropbox link: https://www.dropbox.com/sh/29soflhyqra5qfi/AACE6L0D6ygSDDYq3c9syYLga?dl=0
+
+
+
+## Challenges and Future Scope
+
+### Combining audio & video data
+
+This was undoubtedly our biggest challenge in this project. So far, we have split our data into separate audio and video files to extract MFCCs and images respectively. However, taking a combined approach to simultaneously train a model capable of processing audio and video signals would help achieve a more scalable outcome. As mentioned earlier in the blog, emotion recognition is majorly sought after in many industries. We believe as future scope, this product could be made more widely acceptable by being compatible with either kind of input.
+
+### Emotion recognition in Health Care:
+
+An industry that’s taking advantage of this technology currently is Health Care, with AI-powered recognition software helping to decide when patients necessitate medicine or to help physicians determine who to see first. A problem we foresee that can be prevented with accurate emotion detection is in the Mental Health awareness space. Those suffering from mental health issues often keep to themselves and don’t share much about their problems. Correctly identifying emotions these distress signals, could make a huge difference to avoid mental breakdowns and stress-related trauma. A computer would be unbiased and more sensitive to detecting early signs to help alert close friends or family.
+
+### Dealing with the inherent bias
+
+There are two broad biases that are suffered by our models:
+
+1. All the actors are from the North American geographic area, and thus speak in a distinct North American accent, causing our models to be biased to that. Audio data from speakers of other geographic locations would help eliminate this bias.
+
+2. All audio and video recordings are taken in a professional setting at Ryerson University in the absence of any background/white noise. Therefore, models that are trained on this dataset may not perform well on real-world data. A potential fix to this situation could be to train models on noisy audiovisual datasets and attach class labels using the Amazon Turk service.
+
+## References:
+
+[1] Muneeb ul Hassan, VGG16 — Convolutional Network for Classification and Detection
+[2] Sourish Dey, CNN application on structured data-Automated Feature Extraction
+[3] Francesco Pochetti, Video Classification Experiments: combining Image with Audio features
+[4] Ryan Thompson, How to Use Google Colaboratory for Video Processing
+[5] James Lyons, Python Speech Features
+[6] Angelica Perez, EmoPy: a machine learning toolkit for emotional expression
+
+
