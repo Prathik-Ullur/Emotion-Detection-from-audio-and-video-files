@@ -2,7 +2,7 @@
 
 ## Overview
 
-![](https://egyptinnovate.com/sites/default/files/recognition/images/Affectiva.jpg)
+![](https://marketingland.com/wp-content/ml-loads/2016/03/emotions_ss_1920.png)
 
 It all began about 2,000 years ago when Plato wrote, “All learning has an emotional base.”
 
@@ -87,8 +87,6 @@ Since our dataset has only ~7000 observations, we could find a pretrained model 
 Code is contained in ipython files meant to run in Google Colab, but they can also be run on a local machine with the source data in the appropriate directories. Users can begin at the "cnn.load_model()" cell to skip training and writing to a new .h5 file, which will take anywhere from 45min to several hours.
 
 Trained CNN model weights can be stored in .h5 files created by the Keras Python package. These files can vary in size from 2-800 Mb, far beyond the storage limits of Git. Instead, they can be found at this dropbox link: https://www.dropbox.com/sh/29soflhyqra5qfi/AACE6L0D6ygSDDYq3c9syYLga?dl=0
-
-
 
 ## Challenges and Future Scope
 
